@@ -8,7 +8,6 @@ import dash_bootstrap_components as dbc
 import time
 import sys
 import os
-from dash.testing.application_runners import import_app
 from dash import dcc
 
 
