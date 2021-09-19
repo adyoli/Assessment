@@ -5,4 +5,4 @@ COPY requirements.txt /
 RUN pip install -r /requirements.txt
 COPY ./ ./
 EXPOSE 8050
-CMD ["python", "./covid_dash.py"]
+CMD ["python", "./covid_dash.py","--host=0.0.0.0"]
