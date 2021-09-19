@@ -10,8 +10,8 @@ import sys
 import os
 from dash.testing.application_runners import import_app
 from dash import dcc
-from selenium import webdriver
-from selenium.webdriver.common.by import By
+
+
 lock = threading.Lock()
 
 class TestCases(unittest.TestCase):
