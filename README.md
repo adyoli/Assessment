@@ -8,7 +8,9 @@ For this exercise I decided to go with the media group api with API base "https:
 
 I went with the dash framework on this one, because its the easiest way to produce dynamic, plots with python.
 
-The db of choice was sqlite3, this his allows for data persistence which will hwlp in minimizing API call
+The db of choice was sqlite3, this allows for data persistence which will help in minimizing API call, allow 
+
+for offline use and optimize loading time.
 
 I then dockerized the application for your convenience.
 

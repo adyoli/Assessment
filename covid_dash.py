@@ -1,21 +1,23 @@
 import dash
+import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
 import requests
-import dash_bootstrap_components as dbc
 import sqlite3
 import json
 import threading
 import datetime
 import logging
+import flask
 from dash import dcc
 from dash import html
 from dash.exceptions import PreventUpdate
 from dash.dependencies import Input, Output, State
 
-logging.basicConfig(filename="covid_dash.log", filemode="w")
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUMEN])
+server = flask.Flask(__name__)
+app = dash.Dash(__name__, server=server, external_stylesheets=[dbc.themes.LUMEN])
+logging.basicConfig(filename="covid_dash.log", filemode="w")
 
 BASE_URL = "https://covid-api.mmediagroup.fr/v1/history?"
 
@@ -297,7 +299,7 @@ def run_app():
 
 if __name__ == "__main__":
     run_app()
-    app.run_server(debug=False)
+    app.run_server(debug="False",port=5040,host="0.0.0.0")
 
 
 """ And so it goes ..."""
