@@ -1,19 +1,57 @@
-# SweepSouth
+# SweepSouth 👋
 
-For this assessment I decided to go with something current and something that would be useful to anyone given the times we're living in. I went with a Covid-19 Dashboard.
-The user can enter the name of any country in the world and after pressing the submit button they will have access to over 600 days worth of data, data back to 2020 of how 
-that particular country has been doing in death cases.
+This is a covid-19 dashboard. You enter the name of the country of your choosing in the search bar, press the
+submit button and it will display the daily death case of that country and the cummulative recoveries below.
 
-For this exercise I decided to go with the media group api with API base "https://covid-api.mmediagroup.fr/v1"
+I used a media group api for this, the base for the api is 
 
-I went with the dash framework on this one, because its the easiest way to produce dynamic, plots with python.
+```sh
+"https://covid-api.mmediagroup.fr/v1"
+ ```
+## Some architectural choices:
 
-The db of choice was sqlite3, this allows for data persistence which will help in minimizing API call, allow 
+* I used the Dash framework for this, because its the easiest way to produce dynamic, plots with python.
 
-for offline use and optimize loading time.
+* The db of choice was sqlite3, this allows for data persistence which will help in minimizing API call, allow for offline use and optimize loading time.
 
-I then dockerized the application for your convenience.
+* For static data, like the names of countries, I used json.
 
-NB: Due to time constraints I was unable to comprehensively test the application, however I hope you enjoy going through the code.
+## Folder structure
 
-PS: Be careful about the port, the application sometimes requires binding to the 0.0.0.0 port.
+ ```
+Assessment
+  |____ covid_dash.py
+  |____ requirements.txt
+  |____ Dockerfile
+  |____ covid_data.db
+  |____ covid_dash.log
+  |____ countr_names.json
+  |____ Tests
+        |____ Test_Covid.py
+       
+```
+* The requirements.txt contains the configuration of all packages to be installed, created by:
+ ``` pip freeze > requirements.txt ``` 
+
+## Deploymnt
+
+I built a docker image
+
+```sh
+docker build -t dash .
+
+docker run -it --name services -p 5040:5040 dash
+```
+
+## To acces the dashboard page
+
+Go to `http://localhost:5040` in browser.
+
+## CI/CD and Unit testing
+
+The unittests are run with github actions.
+
+*"And so it goes ..."*
+
+
+
