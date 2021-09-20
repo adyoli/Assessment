@@ -20,15 +20,21 @@ I used a media group api for this, the base for the api is
 
  ```
 Assessment
-  |____ covid_dash.py
-  |____ requirements.txt
-  |____ Dockerfile
-  |____ covid_data.db
-  |____ covid_dash.log
-  |____ countr_names.json
-  |____ Tests
-        |____ Test_Covid.py
-       
+│   .env
+│   country_names.json
+│   covid_dash.log
+│   covid_dash.py
+│   covid_data.db
+│   Dockerfile
+│   README.md
+│   requirements.txt
+│
+├───.github
+│   └───workflows
+│           github-actions-.yml
+│
+└───Tests
+        Test_Covid.py
 ```
 * The requirements.txt contains the configuration of all packages to be installed, created by:
  ``` pip freeze > requirements.txt ``` 
