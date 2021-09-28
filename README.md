@@ -39,7 +39,7 @@ Assessment
 * The requirements.txt contains the configuration of all packages to be installed, created by:
  ``` pip freeze > requirements.txt ``` 
 
-## Deploymnt
+## Deployment
 
 I built a docker image
 
